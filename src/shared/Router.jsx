@@ -5,15 +5,19 @@ import SignUpPage from "../pages/SignupPage";
 import ResultPage from "../pages/ResultPage";
 import TestPage from "../pages/TestPage";
 import ProfilePage from "../pages/ProfilePage";
-const Router = () => {
+import ProtectedRoute from "../components/ProtectedRoute";
+const Router = ({ isAuthed }) => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/login" element={<LogInPage />}></Route>
       <Route path="/signup" element={<SignUpPage />}></Route>
-      <Route path="/profile" element={<ProfilePage />}></Route>
-      <Route path="/test" element={<TestPage />}></Route>
-      <Route path="/result" element={<ResultPage />}></Route>
+      {/*아래는 전부 로그인*/}
+      <Route element={<ProtectedRoute isAuthed={isAuthed} />}>
+        <Route path="/profile" element={<ProfilePage />}></Route>
+        <Route path="/test" element={<TestPage />}></Route>
+        <Route path="/result" element={<ResultPage />}></Route>
+      </Route>
     </Routes>
   );
 };

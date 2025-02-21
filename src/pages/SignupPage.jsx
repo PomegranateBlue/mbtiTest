@@ -1,7 +1,9 @@
+import SignUpComponent from "../components/SignUp";
+
 const SignUp = () => {
   return (
     <div>
-      <p>SignUp</p>
+      <SignUpComponent />
     </div>
   );
 };

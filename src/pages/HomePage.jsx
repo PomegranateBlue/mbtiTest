@@ -1,9 +1,6 @@
+import HomeComponent from "../components/Home";
 const Home = () => {
-  return (
-    <div>
-      <p>Home</p>
-    </div>
-  );
+  return <HomeComponent />;
 };
 
 export default Home;
