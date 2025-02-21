@@ -2,7 +2,14 @@ import axios from "axios";
 
 const API_URL = "https://www.nbcamp-react-auth.link";
 {
-  /*내일배움캠프에서 제공하는 인증 URL*/
+  /*내일배움캠프에서 제공하는 인증 URL
+  /register
+  /login
+  /user
+  /profile
+
+  위의 경로를 API_URL 뒤에 작성해서 인증 정보 유지
+  */
 }
 
 export const register = async (userData) => {
@@ -15,6 +22,9 @@ export const login = async (userData) => {
   return response.data;
 };
 
-export const getUserProfile = async (token) => {};
+export const getUserProfile = async (token) => {
+  const response = await axios.get(`${API_URL}/profile`, token);
+  return response.data;
+};
 
 export const updateProfile = async (formData) => {};

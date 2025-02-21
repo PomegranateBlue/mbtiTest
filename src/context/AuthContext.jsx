@@ -4,6 +4,23 @@ export const AuthContext = createContext();
 
 const token = localStorage.getItem("access Token");
 
-export const AuthProvider = (token) => {
-  const [isAuthed, setIsAuthed] = useState(!!token);
+export const AuthProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(!!token);
+  //!!는 진짜 있는 값인지 확인하기 위해 사용 Truthy, Falsy한 값
+
+  const handleLogin = (token) => {
+    localStorage.setItem("accessToken", token);
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    setIsAuthenticated(false);
+  };
+
+  return (
+    <AuthContext.Provider value={(isAuthenticated, handleLogin, handleLogout)}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
