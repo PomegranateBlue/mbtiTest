@@ -1,40 +1,42 @@
-{
-  /*TestForm 컴포넌트 사용하는 페이지지 */
-}
 import { useState } from "react";
 import TestForm from "../components/TestForm";
-import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator.js";
-import { createTestResult } from "../api/testResults.js";
+import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
+import { createTestResult } from "../api/testResults";
 import { useNavigate } from "react-router-dom";
 
-const TestPage = () => {
-  const [result, setResult] = useState([]);
+const TestPage = ({ user }) => {
   const navigate = useNavigate();
+  const [result, setResult] = useState(null);
+
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);
+    console.log("mbtiResult", mbtiResult);
     setResult(mbtiResult);
 
-    const testDate = new Date.toIsoString();
-
+    const testDate = new Date().toISOString();
+    /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
+    const testData = {
+      answers: answers,
+      result: mbtiResult,
+      description: mbtiDescriptions[result],
+      createdAt: testDate,
+      isPublic: false,
+    };
     try {
-      await createTestResult({
-        result: mbtiResult,
-        answers: answers,
-        createdAt: testDate,
-        isPublic: false,
-        description: mbtiDescriptions[mbtiResult],
-      });
+      await createTestResult(testData);
+      console.log(testData);
     } catch (error) {
       console.log(error);
     }
   };
+
   const handleNavigateToResults = () => {
-    navigate("/results", { state: { result } });
+    navigate("/results");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen bg-slate-700">
-      <div className="w-full max-w-lg p-8 rounded-lg bg-slate-200">
+    <div className="flex flex-col items-center justify-center w-full bg-white">
+      <div className="w-full h-full max-w-lg p-8 overflow-y-auto bg-white rounded-lg">
         {!result ? (
           <>
             <h1 className="mb-6 text-3xl font-bold text-primary-color">

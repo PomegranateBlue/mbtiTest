@@ -1,4 +1,16 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 const HomeComponent = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useContext(AuthContext);
+  const testStartBtn = () => {
+    if (isAuthenticated) {
+      navigate("/test");
+    } else {
+      alert("로그인 이후 테스트 가능합니다");
+    }
+  };
   return (
     <div className="flex flex-col items-center justify-center space-y-6">
       <h1 className="mt-8 text-4xl font-bold">MBTI 테스트</h1>
@@ -26,7 +38,10 @@ const HomeComponent = () => {
         </div>
       </div>
 
-      <button className="w-64 px-6 py-3 mt-4 font-semibold text-white transition-all bg-blue-600 border-2 border-blue-800 rounded-md shadow-md hover:bg-blue-700 hover:border-blue-900">
+      <button
+        onClick={testStartBtn}
+        className="w-64 px-6 py-3 mt-4 font-semibold text-white transition-all bg-blue-600 border-2 border-blue-800 rounded-md shadow-md hover:bg-blue-700 hover:border-blue-900"
+      >
         테스트 시작하기
       </button>
     </div>

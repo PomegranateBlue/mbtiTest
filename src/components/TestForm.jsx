@@ -1,8 +1,3 @@
-{
-  /*여기에서는 테스트 문항을 만들기
-  제출하기를 누르면 서버로 결과 전송하고
-  내가 누른 항목에 대한 결과 페이지를 보여주기기 */
-}
 import { useState } from "react";
 import { questions } from "../data/questions";
 
@@ -51,7 +46,7 @@ const TestForm = ({ onSubmit }) => {
       ))}
       <button
         type="submit"
-        className="w-full bg-primary-color text-black py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 hover:text-[#FF5A5F]"
+        className="w-full bg-primary-color text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 hover:text-[#FF5A5F]"
       >
         제출하기
       </button>

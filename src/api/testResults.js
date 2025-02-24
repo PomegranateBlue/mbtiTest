@@ -8,7 +8,7 @@ export const getTestResults = async () => {
 };
 
 export const createTestResult = async (resultData) => {
-  const response = await axios.get(API_URL, resultData);
+  const response = await axios.post(API_URL, resultData);
   return response.data;
 };
 
