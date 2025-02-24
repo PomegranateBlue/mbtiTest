@@ -7,6 +7,7 @@ const Navigator = () => {
   const navigate = useNavigate();
   const handleLogOutBtn = () => {
     handleLogout();
+    alert("로그아웃 되었습니다");
     navigate("/");
   };
   return (

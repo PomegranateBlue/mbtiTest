@@ -19,7 +19,6 @@ const LogIn = () => {
         alert("로그인 성공");
         navigate("/");
       }
-      console.log(responseData);
     } catch (error) {
       alert("로그인 실패", error);
     }
