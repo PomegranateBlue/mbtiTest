@@ -18,10 +18,9 @@ const TestPage = ({ user }) => {
     const testData = {
       answers: answers,
       result: mbtiResult,
-      description: mbtiDescriptions[result],
+      description: mbtiDescriptions[mbtiResult],
       createdAt: testDate,
       isPublic: false,
-      
     };
     try {
       await createTestResult(testData);

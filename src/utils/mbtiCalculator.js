@@ -1,3 +1,5 @@
+import { questions } from "../data/questions";
+
 export const mbtiDescriptions = {
   ENFJ: "ENFJ: 이타주의자의 끝판왕! ENFJ는 사람을 돕는 데에 진심인 편이에요. 이들은 모든 사람에게 좋은 사람이 되고자 하며, 자기 자신보다 남을 더 우선시하는 슈퍼히어로 같은 존재예요. 친구들이 고민 상담을 할 때마다 차 한 잔 준비해놓고 기다리고 있을지도 몰라요. 그러나 가끔 너무 많은 걸 감당하려고 해서 자신을 잊어버리기도 해요. 그래서 가끔은 '나도 휴식이 필요해!'라고 외칠 필요가 있어요.",
 
@@ -36,12 +38,14 @@ export const calculateMBTI = (answers) => {
 
   // answers 배열을 순회하며 점수 누적
   answers.forEach((answerObj, index) => {
-    const [option1, option2] = answerObj.type.split("/"); // E/I, S/N 등의 유형 분리
     const question = questions[index];
-    const selectedIndex = question.options.indexOf(answerObj.answer);
+    const [option1, option2] = question.type.split("/"); // E/I, S/N 등의 유형 분리
 
-    if (selectedIndex === 0) scores[option1]++;
-    if (selectedIndex === 1) scores[option2]++;
+    if (answerObj.answer === question.options[0]) {
+      scores[option1]++;
+    } else if (answerObj.answer === question.options[1]) {
+      scores[option2]++;
+    }
     // if (answer === option1) {
     //   scores[option1]++;
     // } else if (answer === option2) {
@@ -66,5 +70,5 @@ export const calculateMBTI = (answers) => {
 //   // 추가 질문들...
 // ];
 
-// // const mbtiResult = calculateMBTI(answers);
-// // console.log("MBTI 결과:", mbtiResult); // 예: "MBTI 결과: ESTJ"
+// const mbtiResult = calculateMBTI(answers);
+// console.log("MBTI 결과:", mbtiResult); // 예: "MBTI 결과: ESTJ"
