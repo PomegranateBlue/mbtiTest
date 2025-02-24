@@ -1,36 +1,40 @@
+{
+  /*TestForm 컴포넌트 사용하는 페이지지 */
+}
 import { useState } from "react";
 import TestForm from "../components/TestForm";
-import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
-import { createTestResult } from "../api/testResults";
+import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator.js";
+import { createTestResult } from "../api/testResults.js";
 import { useNavigate } from "react-router-dom";
 
-const TestPage = ({ user }) => {
+const TestPage = () => {
+  const [result, setResult] = useState([]);
   const navigate = useNavigate();
-  const [result, setResult] = useState(null);
-
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);
     setResult(mbtiResult);
 
+    const testDate = new Date.toIsoString();
+
     try {
-      createTestResult({
-        userId: user?.id,
+      await createTestResult({
         result: mbtiResult,
-        answer: answers,
+        answers: answers,
+        createdAt: testDate,
+        isPublic: false,
+        description: mbtiDescriptions[mbtiResult],
       });
     } catch (error) {
       console.log(error);
     }
-    /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
   };
-
   const handleNavigateToResults = () => {
     navigate("/results", { state: { result } });
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-slate-700">
-      <div className="w-full h-full max-w-lg p-8 overflow-y-auto rounded-lg bg-slate-200">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen bg-slate-700">
+      <div className="w-full max-w-lg p-8 rounded-lg bg-slate-200">
         {!result ? (
           <>
             <h1 className="mb-6 text-3xl font-bold text-primary-color">
