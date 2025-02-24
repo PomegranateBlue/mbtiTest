@@ -7,7 +7,9 @@ import SignUpPage from "../pages/SignupPage";
 import ResultPage from "../pages/ResultPage";
 import TestPage from "../pages/TestPage";
 import ProfilePage from "../pages/ProfilePage";
+import NotFountPage from "../pages/NotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
+import Profile from "../pages/ProfilePage";
 const Router = ({ isAuthenticated }) => {
   const PublicRoute = ({ element: Element, ...rest }) => {
     const { isAuthenticated } = useContext(AuthContext);
@@ -18,8 +20,8 @@ const Router = ({ isAuthenticated }) => {
     );
   };
   const PrivateRoute = ({ element: Element, ...rest }) => {
-    const { isAuthed } = useContext(AuthContext);
-    return isAuthed ? <Element {...rest} /> : <Navigate to="/login" />;
+    const { isAuthenticated } = useContext(AuthContext);
+    return isAuthenticated ? <Element {...rest} /> : <Navigate to="/login" />;
   };
 
   return (
@@ -34,11 +36,17 @@ const Router = ({ isAuthenticated }) => {
         element={<PublicRoute element={SignUpPage} />}
       ></Route>
       {/*아래는 전부 로그인*/}
-      <Route element={<ProtectedRoute isAuthed={isAuthenticated} />}>
-        <Route path="/profile" element={<ProfilePage />}></Route>
-        <Route path="/test" element={<TestPage />}></Route>
-        <Route path="/result" element={<ResultPage />}></Route>
-      </Route>
+
+      <Route
+        path="/profile"
+        element={<PrivateRoute element={ProfilePage} />}
+      ></Route>
+      <Route path="/test" element={<PrivateRoute element={TestPage} />}></Route>
+      <Route
+        path="/results"
+        element={<PrivateRoute element={ResultPage} />}
+      ></Route>
+      <Route path="/*" element={<NotFountPage />}></Route>
     </Routes>
   );
 };

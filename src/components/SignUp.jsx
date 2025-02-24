@@ -23,7 +23,11 @@ const SignUp = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSignUp}>
+      <form
+        className="flex flex-col items-center justify-center w-2/3 gap-10 p-10 rounded-lg bg-slate-700"
+        onSubmit={handleSignUp}
+      >
+        <span className="text-4xl font-extrabold text-white">회원가입</span>
         <input
           type="text"
           placeholder="아이디"
@@ -47,7 +51,12 @@ const SignUp = () => {
           }}
           required
         ></input>
-        <button type="submit">가입하기</button>
+        <button
+          className="w-3/5 py-2 text-xl font-bold text-white bg-blue-500 rounded-md"
+          type="submit"
+        >
+          가입하기
+        </button>
       </form>
     </div>
   );
