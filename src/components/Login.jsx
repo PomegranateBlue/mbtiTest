@@ -13,7 +13,7 @@ const LogIn = () => {
     e.preventDefault();
     try {
       const userLoginData = { id, password };
-      const responseData = login(userLoginData);
+      const responseData = await login(userLoginData);
 
       if (responseData.success) {
         handleLogin(responseData.accessToken);
