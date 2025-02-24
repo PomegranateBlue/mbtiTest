@@ -1,49 +1,61 @@
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { login } from "../api/auth";
+import axios from "axios";
 const LogIn = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const { handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const loginData = { id, password };
     try {
-      const userToken = login(loginData);
-      if (userToken) {
-        handleLogin(userToken.accessToken);
-        navigate("/");
+      const response = await axios.post(
+        "https://www.nbcamp-react-auth.link/login",
+        { id, password }
+      );
+      const data = response.data;
+      if (data.success) {
+        handleLogin(data.accessToken);
+        alert("로그인 성공");
       }
+      console.log(data);
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex bg-slate-700 justify-center p-8 gap-10"
-    >
-      <input
-        type="text"
-        placeholder="아이디"
-        value={id}
-        onChange={(e) => {
-          setId(e.target.value);
-        }}
-        required
-      />
-      <input
-        type="text"
-        placeholder="비밀번호"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">로그인</button>
-    </form>
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center justify-center w-2/3 gap-10 rounded-lg bg-slate-700"
+      >
+        <input
+          type="text"
+          placeholder="아이디"
+          value={id}
+          onChange={(e) => {
+            setId(e.target.value);
+          }}
+          required
+        />
+        <input
+          type="text"
+          placeholder="비밀번호"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button className="w-3/5 py-2 bg-blue-500 rounded-md" type="submit">
+          로그인
+        </button>
+        <Link to="/signup" className="w-3/5 py-2 bg-blue-500 rounded-md ">
+          회원가입
+        </Link>
+      </form>
+    </div>
   );
 };
 
