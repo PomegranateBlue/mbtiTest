@@ -10,11 +10,22 @@ const TestPage = ({ user }) => {
 
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);
+    setResult(mbtiResult);
+
+    try {
+      createTestResult({
+        userId: user?.id,
+        result: mbtiResult,
+        answer: answers,
+      });
+    } catch (error) {
+      console.log(error);
+    }
     /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
   };
 
   const handleNavigateToResults = () => {
-    navigate("/results");
+    navigate("/results", { state: { result } });
   };
 
   return (
