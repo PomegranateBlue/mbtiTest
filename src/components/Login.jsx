@@ -12,18 +12,17 @@ const LogIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://www.nbcamp-react-auth.link/login",
-        { id, password }
-      );
-      const data = response.data;
-      if (data.success) {
-        handleLogin(data.accessToken);
+      const userLoginData = { id, password };
+      const responseData = login(userLoginData);
+
+      if (responseData.success) {
+        handleLogin(responseData.accessToken);
         alert("로그인 성공");
+        navigate("/");
       }
-      console.log(data);
+      console.log(responseData);
     } catch (error) {
-      console.log(error);
+      alert("로그인 실패", error);
     }
   };
   return (
