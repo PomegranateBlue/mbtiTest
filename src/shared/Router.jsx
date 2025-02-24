@@ -17,7 +17,10 @@ const Router = ({ isAuthenticated }) => {
       <Navigate to="/"></Navigate>
     );
   };
-  const PrivateRoute = () => {};
+  const PrivateRoute = ({ element: Element, ...rest }) => {
+    const { isAuthed } = useContext(AuthContext);
+    return isAuthed ? <Element {...rest} /> : <Navigate to="/login" />;
+  };
 
   return (
     <Routes>

@@ -29,8 +29,9 @@ const LogIn = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center justify-center w-2/3 gap-10 rounded-lg bg-slate-700"
+        className="flex flex-col items-center justify-center w-2/3 gap-10 p-10 rounded-lg bg-slate-700"
       >
+        <span className="text-4xl font-extrabold text-white">로그인</span>
         <input
           type="text"
           placeholder="아이디"
@@ -47,7 +48,10 @@ const LogIn = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="w-3/5 py-2 bg-blue-500 rounded-md" type="submit">
+        <button
+          className="w-3/5 py-2 text-xl font-bold text-white bg-blue-500 rounded-md"
+          type="submit"
+        >
           로그인
         </button>
         <Link to="/signup" className="w-3/5 py-2 bg-blue-500 rounded-md ">
