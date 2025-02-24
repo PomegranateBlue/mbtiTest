@@ -1,4 +1,268 @@
 {
-  "testResults": []
+  "testResults": [
+    {
+      "id": "a101",
+      "answers": [
+        {
+          "type": "E/I",
+          "answer": "같이 놀아준다"
+        },
+        {
+          "type": "S/N",
+          "answer": "치즈 늘어나는 걸 찍는다"
+        },
+        {
+          "type": "T/F",
+          "answer": "화면 깨졌나?"
+        },
+        {
+          "type": "J/P",
+          "answer": "평소 먹던 걸 시킨다"
+        },
+        {
+          "type": "E/I",
+          "answer": "저거 터지면 난 죽는다"
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        },
+        {
+          "type": "",
+          "answer": ""
+        }
+      ],
+      "result": "ESTJ",
+      "createdAt": "2025-02-24T15:02:34.055Z",
+      "isPublic": false
+    },
+    {
+      "id": "994d",
+      "answers": [
+        {
+          "type": "E/I",
+          "answer": "같이 놀아준다"
+        },
+        {
+          "type": "S/N",
+          "answer": "치즈 늘어나는 걸 찍는다"
+        },
+        {
+          "type": "T/F",
+          "answer": "화면 깨졌나?"
+        },
+        {
+          "type": "J/P",
+          "answer": "평소 먹던 걸 시킨다"
+        },
+        {
+          "type": "E/I",
+          "answer": "와, 신기하다! 가까이 간다"
+        },
+        {
+          "type": "S/N",
+          "answer": "색깔 고운 걸 고른다"
+        },
+        {
+          "type": "T/F",
+          "answer": "웃기만 한다"
+        },
+        {
+          "type": "J/P",
+          "answer": "귀엽다... 또 떨어뜨리네!"
+        },
+        {
+          "type": "E/I",
+          "answer": "춤추면서 걷는다"
+        },
+        {
+          "type": "S/N",
+          "answer": "영화 시작 전에 다 먹는다"
+        },
+        {
+          "type": "T/F",
+          "answer": "일단 아무 일 없던 척한다"
+        },
+        {
+          "type": "J/P",
+          "answer": "하늘을 보며 한숨 쉰다"
+        },
+        {
+          "type": "E/I",
+          "answer": "눈싸움을 시작한다"
+        },
+        {
+          "type": "S/N",
+          "answer": "게임 룰을 적극적으로 설명한다"
+        },
+        {
+          "type": "T/F",
+          "answer": "그냥 먹는다"
+        },
+        {
+          "type": "E/I",
+          "answer": "먼저 손을 흔든다"
+        },
+        {
+          "type": "S/N",
+          "answer": "거울을 본다"
+        },
+        {
+          "type": "T/F",
+          "answer": "바로 아는척을 한다"
+        },
+        {
+          "type": "S/N",
+          "answer": "그냥 넘어간다"
+        },
+        {
+          "type": "J/P",
+          "answer": "두 개 이상 가져간다"
+        }
+      ],
+      "result": "ESTJ",
+      "createdAt": "2025-02-24T15:02:59.877Z",
+      "isPublic": false
+    },
+    {
+      "id": "5609",
+      "answers": [
+        {
+          "type": "E/I",
+          "answer": "도망간다"
+        },
+        {
+          "type": "S/N",
+          "answer": "치즈 늘어나는 걸 찍는다"
+        },
+        {
+          "type": "T/F",
+          "answer": "화면 깨졌나?"
+        },
+        {
+          "type": "J/P",
+          "answer": "평소 먹던 걸 시킨다"
+        },
+        {
+          "type": "E/I",
+          "answer": "와, 신기하다! 가까이 간다"
+        },
+        {
+          "type": "S/N",
+          "answer": "색깔 고운 걸 고른다"
+        },
+        {
+          "type": "T/F",
+          "answer": "웃기만 한다"
+        },
+        {
+          "type": "J/P",
+          "answer": "귀엽다... 또 떨어뜨리네!"
+        },
+        {
+          "type": "E/I",
+          "answer": "춤추면서 걷는다"
+        },
+        {
+          "type": "S/N",
+          "answer": "영화 시작 전에 다 먹는다"
+        },
+        {
+          "type": "T/F",
+          "answer": "일단 아무 일 없던 척한다"
+        },
+        {
+          "type": "J/P",
+          "answer": "하늘을 보며 한숨 쉰다"
+        },
+        {
+          "type": "E/I",
+          "answer": "눈싸움을 시작한다"
+        },
+        {
+          "type": "S/N",
+          "answer": "게임 룰을 적극적으로 설명한다"
+        },
+        {
+          "type": "T/F",
+          "answer": "그냥 먹는다"
+        },
+        {
+          "type": "E/I",
+          "answer": "먼저 손을 흔든다"
+        },
+        {
+          "type": "S/N",
+          "answer": "거울을 본다"
+        },
+        {
+          "type": "T/F",
+          "answer": "바로 아는척을 한다"
+        },
+        {
+          "type": "S/N",
+          "answer": "그냥 넘어간다"
+        },
+        {
+          "type": "J/P",
+          "answer": "두 개 이상 가져간다"
+        }
+      ],
+      "result": "ESTJ",
+      "createdAt": "2025-02-24T16:07:47.533Z",
+      "isPublic": false
+    }
+  ]
 }
-

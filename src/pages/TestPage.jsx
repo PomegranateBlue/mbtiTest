@@ -21,6 +21,7 @@ const TestPage = ({ user }) => {
       description: mbtiDescriptions[result],
       createdAt: testDate,
       isPublic: false,
+      
     };
     try {
       await createTestResult(testData);

@@ -15,6 +15,12 @@ const Navigator = () => {
       <div className="space-x-4">
         <Link to="/">Home</Link>
         <Link to="/test">Test</Link>
+        {isAuthenticated && (
+          <>
+            <Link to="/results">Result</Link>
+            <Link to="/profile">Profile</Link>
+          </>
+        )}
       </div>
       <div>
         {isAuthenticated ? (
