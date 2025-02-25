@@ -5,8 +5,9 @@ import {
   deleteTestResult,
 } from "../api/testResults";
 import { successToast } from "../utils/toastUI";
-const { user } = useContext(AuthContext);
+
 const TestResultItem = ({ id, result, createdAt, description, onDelete }) => {
+  const { user } = useContext(AuthContext);
   const handleDelete = async () => {
     try {
       await deleteTestResult(id);

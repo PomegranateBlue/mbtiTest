@@ -1,9 +1,10 @@
-const Profile = () => {
+import Profile from "../components/Profile";
+const ProfilePage = () => {
   return (
     <div>
-      <p>Profile</p>
+      <Profile />
     </div>
   );
 };
 
-export default Profile;
+export default ProfilePage;

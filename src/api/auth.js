@@ -27,4 +27,7 @@ export const getUserProfile = async (token) => {
   return response.data;
 };
 
-export const updateProfile = async (formData) => {};
+export const updateProfile = async (formData) => {
+  const response = await axios.patch(`${API_URL}/profile`, formData);
+  return response.data;
+};
