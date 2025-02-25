@@ -14,9 +14,9 @@ const LogIn = () => {
     try {
       const userLoginData = { id, password };
       const responseData = await login(userLoginData);
-
+      console.log(responseData);
       if (responseData.success) {
-        handleLogin(responseData.accessToken);
+        handleLogin(responseData);
         successToast("로그인 성공");
         navigate("/");
       }

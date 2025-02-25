@@ -8,8 +8,8 @@ import ResultPage from "../pages/ResultPage";
 import TestPage from "../pages/TestPage";
 import ProfilePage from "../pages/ProfilePage";
 import NotFountPage from "../pages/NotFound";
-
 import Profile from "../pages/ProfilePage";
+
 const Router = ({ isAuthenticated }) => {
   const PublicRoute = ({ element: Element, ...rest }) => {
     const { isAuthenticated } = useContext(AuthContext);
@@ -35,8 +35,6 @@ const Router = ({ isAuthenticated }) => {
         path="/signup"
         element={<PublicRoute element={SignUpPage} />}
       ></Route>
-      {/*아래는 전부 로그인*/}
-
       <Route
         path="/profile"
         element={<PrivateRoute element={ProfilePage} />}

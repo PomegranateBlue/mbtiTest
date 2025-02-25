@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { successToast } from "../utils/toastUI";
 const Navigator = () => {
-  const { isAuthenticated, handleLogout } = useContext(AuthContext);
+  const { isAuthenticated, user, handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogOutBtn = () => {
     handleLogout();
@@ -14,18 +14,19 @@ const Navigator = () => {
   return (
     <nav className="flex justify-between px-10 py-3 text-2xl text-white bg-sky-950">
       <div className="space-x-4">
-        <Link to="/">Home</Link>
-        <Link to="/test">Test</Link>
+        <Link to="/">홈</Link>
+        <Link to="/test">테스트</Link>
         {isAuthenticated && (
           <>
-            <Link to="/results">Result</Link>
-            <Link to="/profile">Profile</Link>
+            <Link to="/results">테스트 결과</Link>
+            <Link to="/profile">프로필</Link>
           </>
         )}
       </div>
-      <div>
+      <div className="flex space-x-4 ">
+        {isAuthenticated && user && <div>{user.nickname}</div>}
         {isAuthenticated ? (
-          <button onClick={handleLogOutBtn}>LogOut</button>
+          <button onClick={handleLogOutBtn}>로그아웃</button>
         ) : (
           <Link to="/login">LogIn</Link>
         )}

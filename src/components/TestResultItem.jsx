@@ -1,16 +1,12 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import {
   updateTestResultVisibility,
   deleteTestResult,
 } from "../api/testResults";
 import { successToast } from "../utils/toastUI";
-const TestResultItem = ({
-  id,
-  nickname,
-  result,
-  createdAt,
-  description,
-  onDelete,
-}) => {
+const { user } = useContext(AuthContext);
+const TestResultItem = ({ id, result, createdAt, description, onDelete }) => {
   const handleDelete = async () => {
     try {
       await deleteTestResult(id);
@@ -32,7 +28,7 @@ const TestResultItem = ({
   return (
     <div className="flex flex-col w-full max-w-md gap-4 p-4 mx-auto bg-white rounded-lg shadow-2xl">
       <div className="w-full text-lg font-semibold text-center text-gray-800 bg-blue-500">
-        {nickname}
+        {user.nickname}
       </div>
       <div className="flex items-center justify-between text-sm text-gray-600">
         <div className="text-xl font-medium text-blue-600">{result}</div>
