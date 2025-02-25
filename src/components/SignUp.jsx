@@ -39,7 +39,7 @@ const SignUp = () => {
         />
         <input
           className="w-2/5 p-2 rounded-md"
-          type="text"
+          type="password"
           placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
