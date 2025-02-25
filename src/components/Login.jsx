@@ -2,6 +2,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { login } from "../api/auth";
+import { errorToast, successToast } from "../utils/toastUI";
 const LogIn = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -16,21 +17,22 @@ const LogIn = () => {
 
       if (responseData.success) {
         handleLogin(responseData.accessToken);
-        alert("로그인 성공");
+        successToast("로그인 성공");
         navigate("/");
       }
     } catch (error) {
-      alert("로그인 실패", error);
+      errorToast("로그인 실패", error);
     }
   };
   return (
     <div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center justify-center w-2/3 gap-10 p-10 rounded-lg bg-slate-700"
+        className="flex flex-col items-center w-2/3 gap-10 p-8 m-auto mt-20 rounded-xl bg-slate-700"
       >
         <span className="text-4xl font-extrabold text-white">로그인</span>
         <input
+          className="w-2/5 p-2 rounded-md"
           type="text"
           placeholder="아이디"
           value={id}
@@ -40,6 +42,7 @@ const LogIn = () => {
           required
         />
         <input
+          className="w-2/5 p-2 rounded-md"
           type="text"
           placeholder="비밀번호"
           value={password}
@@ -47,12 +50,15 @@ const LogIn = () => {
           required
         />
         <button
-          className="w-3/5 py-2 text-xl font-bold text-white bg-blue-500 rounded-md"
+          className="w-1/4 py-2 text-xl font-bold text-white bg-blue-500 rounded-md"
           type="submit"
         >
           로그인
         </button>
-        <Link to="/signup" className="w-3/5 py-2 bg-blue-500 rounded-md ">
+        <Link
+          to="/signup"
+          className="w-1/4 py-2 text-xl font-bold text-center text-white bg-blue-500 rounded-md "
+        >
           회원가입
         </Link>
       </form>

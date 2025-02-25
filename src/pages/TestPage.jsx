@@ -10,7 +10,6 @@ const TestPage = ({ user }) => {
 
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);
-    console.log("mbtiResult", mbtiResult);
     setResult(mbtiResult);
 
     const testDate = new Date().toISOString();
@@ -24,7 +23,6 @@ const TestPage = ({ user }) => {
     };
     try {
       await createTestResult(testData);
-      console.log(testData);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +53,7 @@ const TestPage = ({ user }) => {
             </p>
             <button
               onClick={handleNavigateToResults}
-              className="w-full bg-primary-color text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 hover:text-[#FF5A5F]"
+              className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 hover:text-[#FF5A5F]"
             >
               결과 페이지로 이동하기
             </button>

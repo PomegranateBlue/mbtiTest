@@ -8,7 +8,7 @@ import ResultPage from "../pages/ResultPage";
 import TestPage from "../pages/TestPage";
 import ProfilePage from "../pages/ProfilePage";
 import NotFountPage from "../pages/NotFound";
-import ProtectedRoute from "../components/ProtectedRoute";
+
 import Profile from "../pages/ProfilePage";
 const Router = ({ isAuthenticated }) => {
   const PublicRoute = ({ element: Element, ...rest }) => {

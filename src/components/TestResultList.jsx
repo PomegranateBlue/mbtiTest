@@ -23,6 +23,10 @@ const TestResultList = () => {
 
     fetchResult();
   }, []);
+
+  const handleDelete = (deleteResultId) => {
+    setTestResults(testResults.filter((item) => item.id !== deleteResultId));
+  };
   return (
     <div className="mx-auto">
       <h1 className="text-3xl text-center">테스트 결과</h1>
@@ -35,9 +39,12 @@ const TestResultList = () => {
           {testResults.map((result) => (
             <TestResultItem
               key={result.id} // 고유한 키 추가
+              id={result.id}
               result={result.result}
               createdAt={result.createdAt}
               description={result.description}
+              onDelete={handleDelete}
+              nickname={result.nickname}
             />
           ))}
         </div>

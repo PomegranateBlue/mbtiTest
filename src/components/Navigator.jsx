@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { successToast } from "../utils/toastUI";
 const Navigator = () => {
   const { isAuthenticated, handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogOutBtn = () => {
     handleLogout();
-    alert("로그아웃 되었습니다");
+    successToast("로그아웃 되었습니다");
     navigate("/");
   };
   return (

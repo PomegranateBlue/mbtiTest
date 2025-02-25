@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../api/auth";
+import { successToast, errorToast } from "../utils/toastUI";
 const SignUp = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -14,21 +15,22 @@ const SignUp = () => {
     try {
       const response = await register(registerData);
       if (response.success) {
-        alert("회원가입 성공, 로그인해주세요");
+        successToast("회원가입 성공, 로그인해주세요");
         navigate("/login");
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return (
     <div>
       <form
-        className="flex flex-col items-center justify-center w-2/3 gap-10 p-10 rounded-lg bg-slate-700"
+        className="flex flex-col items-center w-2/3 gap-10 p-8 m-auto mt-20 rounded-xl bg-slate-700"
         onSubmit={handleSignUp}
       >
         <span className="text-4xl font-extrabold text-white">회원가입</span>
         <input
+          className="w-2/5 p-2 rounded-md"
           type="text"
           placeholder="아이디"
           value={id}
@@ -36,6 +38,7 @@ const SignUp = () => {
           required
         />
         <input
+          className="w-2/5 p-2 rounded-md"
           type="text"
           placeholder="비밀번호"
           value={password}
@@ -43,6 +46,7 @@ const SignUp = () => {
           required
         />
         <input
+          className="w-2/5 p-2 rounded-md"
           type="text"
           placeholder="닉네임"
           value={nickname}
@@ -52,7 +56,7 @@ const SignUp = () => {
           required
         ></input>
         <button
-          className="w-3/5 py-2 text-xl font-bold text-white bg-blue-500 rounded-md"
+          className="w-1/4 py-2 text-xl font-bold text-center text-white bg-blue-500 rounded-md"
           type="submit"
         >
           가입하기
