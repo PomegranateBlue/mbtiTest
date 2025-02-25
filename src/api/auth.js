@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://www.nbcamp-react-auth.link";
+const API_URL = import.meta.env.VITE_AUTH_SERVER_URL;
 {
   /*내일배움캠프에서 제공하는 인증 URL
   /register
