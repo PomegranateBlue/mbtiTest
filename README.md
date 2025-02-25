@@ -1,8 +1,53 @@
-# React + Vite
+# MBTI Test Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+이 프로젝트는 **React**와 **Vite**를 기반으로 한 MBTI 테스트 애플리케이션입니다.  
+주요 기능으로는 인증, 프로필 업데이트, 테스트 결과 제출 등이 있으며, **json-server**를 활용하여 API 통신을 연습했습니다.  
+**TanStack Query**와 **Zustand**를 이용한 상태 관리는 미구현 상태입니다.
 
-Currently, two official plugins are available:
+## 목차
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [구현한 기능](#구현한-기능)
+- [미구현 기능](#미구현-기능)
+- [프로젝트 구조](#프로젝트-구조)
+- [설치 및 실행 방법](#설치-및-실행-방법)
+- [사용 방법](#사용-방법)
+- [라이선스](#라이선스)
+
+## 구현한 기능
+
+- **인증 기능**  
+  - 회원가입 및 로그인 API 연동  
+  - `AuthContext`를 통한 전역 로그인 상태 관리  
+  - 내비게이터에 로그인한 사용자의 닉네임 표시
+
+- **프로필 업데이트**  
+  - 프로필 페이지에서 닉네임 변경 기능 구현  
+  - API 호출을 통한 사용자 정보 업데이트 및 전역 상태 반영
+
+- **테스트 결과 관리**  
+  - 테스트 결과 제출, 삭제, 공개 기능 구현  
+  - **json-server**를 활용한 데이터 통신 연습
+
+- **기타 UI 구성**  
+  - React Router를 이용한 페이지 라우팅  
+  - `react-toastify`를 이용한 사용자 피드백(토스트 알림) 구현
+
+## 미구현 기능
+
+- **TanStack Query**  
+  - 서버 상태 관리와 캐싱을 위한 TanStack Query 적용 미구현
+
+- **Zustand**  
+  - 클라이언트 상태 관리를 위한 Zustand 적용 미구현
+
+
+
+
+회원가입 및 로그인 후 AuthContext에 사용자 정보가 저장됩니다.
+내비게이터에 로그인한 사용자의 닉네임이 표시됩니다.
+프로필 업데이트:
+
+프로필 페이지에서 새로운 닉네임을 입력 후 "변경하기" 버튼을 클릭하면 서버에 PATCH 요청을 보내고, 업데이트된 닉네임이 반영됩니다.
+테스트 결과 관리:
+
+
